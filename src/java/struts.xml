@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+    <package name="default" namespace="/" extends="struts-default,json-default">		           
+        <action name="FspAssureProductCreat" class="tw.com.controller.ProductAction"
+                     method="FspAssureProductCreat">
+            <result name="success" type="json">
+                <param name="includeProperties">
+                    jsonDataMap\.ret,														
+                    jsonDataMap\.success
+                </param>
+            </result>			
+        </action>
+    </package>
+        
+    <package name="product" namespace="/Product" extends="struts-default,json-default">		           
+        <action name="showProductInfo" class="tw.com.controller.ProductAction"
+                     method="showProductInfo">
+            <result name="success">
+                /WEB-INF/showProductInfo.jsp
+            </result>			
+        </action>
+        <action name="ajaxSetProductOnOff" class="tw.com.controller.ProductAction"
+                   method="ajaxSetProductOnOff">
+            <result name="ajaxSuccess" type="json">				
+                <param name="includeProperties">
+                    jsonDataMap\.ret,														
+                    jsonDataMap\.success
+                </param>			
+            </result>
+        </action>
+            
+    </package>
+</struts>    
